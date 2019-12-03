@@ -1,0 +1,43 @@
+﻿@model CognitiveSearch.Web.Models.SearchViewModel
+
+<nav class="d-block bg-light sidebar">
+    <div class="sidebar-sticky">
+        <div class="">
+            <div align="left" style="padding-left:13px">
+                <button id="facet-settings-btn" onclick="ShowFacetSettings()" class="btn btn-outline-primary btn-results-view" title="Facet Settings">
+                    筛选条件设置 >>
+                </button>
+            </div>
+            <div id="search-facets" class="input-group p-2">
+                <div id="filterReset"></div>
+                <div class="widget-content">
+                    <div id="facet-nav" class="facet-nav"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+
+
+        $('#q').autocomplete({
+            source: function (request, response) {
+                var q = $('#q').val();
+                // TODO: Add suggestion box under the search box.
+                $.ajax({
+                    type: "GET",
+                    url: `${apiUrl}/suggestions?search=${q}`,
+                    success: function (data) {
+                        response(data);
+                    }
+                });
+            },
+            minLength: 3,
+            select: function (event, ui) {
+                Search();
+            }
+        });
+    });
+</script>

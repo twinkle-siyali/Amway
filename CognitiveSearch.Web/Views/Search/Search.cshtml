@@ -1,0 +1,92 @@
+﻿@model CognitiveSearch.Web.Models.SearchViewModel
+@{
+    ViewData["Title"] = "Search Results";
+}
+
+<!-- Pass controller data to view -->
+<script>
+    q = @Html.Raw(Json.Serialize(Model.Query));
+    searchId = @Html.Raw(Json.Serialize(Model.SearchId));
+    applicationInstrumentationKey = @Html.Raw(Json.Serialize(Model.AppConfig.AppInsights.InstrumentationKey));
+
+    
+</script>
+
+@await Html.PartialAsync("_SideBar", Model)
+@await Html.PartialAsync("_FacetSettings")
+
+<main role="main">
+    <div id="center-search">
+        <div class="">
+            <div id="search-input-group" class="input-group p-2 mb-3 search-autocomplete">
+                <h4 class="sidebar-heading d-flex justify-content-between align-items-center px-4 mt-1 mb-1 text-muted" style="font-size:125%;">
+                    <span>搜索</span>
+                </h4>
+                <input type="text" class="form-control" name="q" id="q" placeholder="请输入关键字" aria-label="Enter search query..." aria-describedby="btn-search">
+                <span class="input-group-append">
+                    <button id="btn-search" class="btn btn-outline-primary"><span class="ms-Icon ms-Icon--Search"></span></button>
+                </span>
+            </div>
+        </div>
+    </div>
+
+
+    <div id="search-results">
+        <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center mb-3 border-bottom" style="background-color:linen;">
+            <ul class="navbar-nav list-group-horizontal" style="font-weight:inherit;">
+            
+                <li class="nav-item subtitle">
+                    <a id="fileUpdate" class="nav-link navbar-text" style="width:30px;" onclick="SearchFile();">文件</a>
+                </li>
+                <li class="nav-item subtitle">
+                    <a id="pictureUpdate" class="nav-link navbar-text" style="width:30px;">图片</a>
+                </li>
+                <li class="nav-item subtitle">
+                    <a id="upload-data-page" class="nav-link navbar-text" style="width:30px;" asp-area="" asp-controller="Admin" asp-action="UploadData">视频</a>
+                </li>
+                <li class="nav-item subtitle">
+                    <a class="nav-link navbar-text" style="width:30px;" asp-area="" asp-controller="Reports" asp-action="Index">新闻</a>
+                </li>
+            </ul>
+        </div>
+        
+        <div id="search-results-container">
+            @await Html.PartialAsync("_SearchResults")
+            @await Html.PartialAsync("_EntityMap")
+        </div>
+    </div>
+
+
+</main>
+
+
+
+<script type="text/javascript">
+    $(document).ready(function () {
+
+        if (getCookie("showTutorial") !== "false") {
+            var modal = document.getElementById("introModal");
+            modal.style.display = "block";
+        }
+
+        $('#btn-search').click(function (e) {
+            Search();
+        });
+
+        $('#pictureUpdate').click(function (e) {
+            SearchPicture();
+        });
+
+        /*$('#fileUpdate').click(function (e) {
+            SearchFile();
+        });*/
+
+        $('#view-switcher').find('button').click(function () {
+            var view = $(this).data('view');
+            EntityMapClick(view);
+        });
+
+        GetFacetFilterFiles();
+
+    });
+</script>

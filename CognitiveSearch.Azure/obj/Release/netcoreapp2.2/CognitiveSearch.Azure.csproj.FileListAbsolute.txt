@@ -1,0 +1,8 @@
+D:\AIPlatform\end-to-end-solutions\kma\src\Web UI Template\CognitiveSearch.Azure\bin\Release\netcoreapp2.2\CognitiveSearch.Azure.deps.json
+D:\AIPlatform\end-to-end-solutions\kma\src\Web UI Template\CognitiveSearch.Azure\bin\Release\netcoreapp2.2\CognitiveSearch.Azure.dll
+D:\AIPlatform\end-to-end-solutions\kma\src\Web UI Template\CognitiveSearch.Azure\bin\Release\netcoreapp2.2\CognitiveSearch.Azure.pdb
+D:\AIPlatform\end-to-end-solutions\kma\src\Web UI Template\CognitiveSearch.Azure\obj\Release\netcoreapp2.2\CognitiveSearch.Azure.csprojAssemblyReference.cache
+D:\AIPlatform\end-to-end-solutions\kma\src\Web UI Template\CognitiveSearch.Azure\obj\Release\netcoreapp2.2\CognitiveSearch.Azure.AssemblyInfoInputs.cache
+D:\AIPlatform\end-to-end-solutions\kma\src\Web UI Template\CognitiveSearch.Azure\obj\Release\netcoreapp2.2\CognitiveSearch.Azure.AssemblyInfo.cs
+D:\AIPlatform\end-to-end-solutions\kma\src\Web UI Template\CognitiveSearch.Azure\obj\Release\netcoreapp2.2\CognitiveSearch.Azure.dll
+D:\AIPlatform\end-to-end-solutions\kma\src\Web UI Template\CognitiveSearch.Azure\obj\Release\netcoreapp2.2\CognitiveSearch.Azure.pdb
